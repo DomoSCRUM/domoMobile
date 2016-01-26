@@ -8,12 +8,12 @@
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/paintball.jpg"
     },
     {
-        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/iconxb.png",
-        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/iconxb.png"
-    },
-    {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/marcadorapro.jpg",
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/marcadorapro.jpg"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/iconxb.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/iconxb.png"
     },
     {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/light_on.png",
@@ -36,12 +36,12 @@
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/fondo.jpg"
     },
     {
-        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/player22.png",
-        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/player22.png"
-    },
-    {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/logoxtremebuster.jpg",
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/logoxtremebuster.jpg"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/player22.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/player22.png"
     },
     {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/bustersplayer.png",
