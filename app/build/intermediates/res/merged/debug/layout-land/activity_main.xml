@@ -64,7 +64,7 @@
 
 
             <ImageButton
-                android:id="@+id/light1"
+                android:id="@+id/update"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:paddingTop="50dp"
@@ -73,11 +73,11 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:text="@string/lifht1"
-                android:onClick="turnOnOne"
+                android:onClick="update"
                 android:background="@drawable/light_on"/>
 
             <ImageButton
-                android:id="@+id/light2"
+                android:id="@+id/light"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:paddingTop="3dp"
@@ -85,25 +85,12 @@
                 android:layout_margin="5dp"
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
-                android:onClick="turnOntwo"
+                android:onClick="turnOnOff"
 
                 android:background="@drawable/light_on"/>
 
             <ImageButton
-                android:id="@+id/light3"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="5dp"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:onClick="turnOnThree"
-
-                android:background="@drawable/light_on"/>
-
-            <ImageButton
-                android:id="@+id/temperature"
+                android:id="@+id/temp"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:paddingTop="3dp"
@@ -112,6 +99,19 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:onClick="knowTemp"
+
+                android:background="@drawable/light_on"/>
+
+            <ImageButton
+                android:id="@+id/salir"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="5dp"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:onClick="salir"
                 android:background="@drawable/temperatura"/>
 
 

@@ -31,14 +31,10 @@ public class MainActivity extends Activity {
     private ProgressDialog pDialog;
     private int success=-1;
     private static final int LIGHT_ONE = 1;
-    private static final int LIGHT_TWO= 2;
-    private static final int LIGHT_THREE = 3;
     private static final int TEMPERATURE = 4;
     private boolean TURN_ON_LIGHT_ONE=false;
-    private boolean TURN_ON_LIGHT_TWO=true;
-    private boolean TURN_ON_LIGHT_THREE=false;
     private String IP = "10.0.2.2";
-    private String url_login = "http://" + IP+ "/xtreme/login.php";
+    private String url_login = "http://" + IP+ ":8080/domoScrum";
     private JSONObject json=null;
 
 
@@ -66,10 +62,9 @@ public class MainActivity extends Activity {
         }
         //setea la direccion del shareprefrence
         IP = sharedPref.getString("ip", IP);
-        url_login = "http://" + IP+ "/xtreme/login.php";
+        url_login = "http://" + IP+ ":8080/domoScrum";
 
-        //verifica el estado de la luces y temperatura al iniciar la actividad
-        new DeviceAction(true).execute();
+
     }
 
 
@@ -95,35 +90,18 @@ public class MainActivity extends Activity {
         startActivity(new Intent("com.google.xtreme.CLEARSPLASH"));
     }
 
-    public void turnOnOffOne(View v)
+    public void update(View v)
     {
-        Device device= new Device();
-        device.setId(findViewById(R.id.light1).getId());
-        device.setName("Light1");
-
-        new DeviceAction(device).execute();
-
-
+        //verifica el estado de la luces y temperatura al iniciar la actividad
+        new DeviceAction(true).execute(); //como Un Boton
     }
 
-    public void turnOnOffTwo(View v)
+    public void turnOnOff(View v)
     {
         Device device= new Device();
-        device.setId(findViewById(R.id.light2).getId());
-        device.setName("Ligh2");
+        device.setId(findViewById(R.id.light).getId());
+        device.setName("light");
         new DeviceAction(device).execute();
-        //new DeviceAction(LIGHT_TWO).execute();
-
-
-    }
-
-    public void turnOnOffThree(View v)
-    {
-        Device device= new Device();
-        device.setId(findViewById(R.id.light3).getId());
-        device.setName("Light3");
-        new DeviceAction(device).execute();
-        //new DeviceAction(LIGHT_THREE).execute();
 
 
     }
@@ -132,7 +110,7 @@ public class MainActivity extends Activity {
     {
         Device device= new Device();
         device.setId(findViewById(R.id.temp).getId());
-        device.setName("Temperature");
+        device.setName("temp");
         device.setIsLight(false);
         new DeviceAction(device).execute();
 
@@ -167,7 +145,7 @@ public class MainActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Consultando estado.");
+            pDialog.setMessage("Consultando estado");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
@@ -181,35 +159,15 @@ public class MainActivity extends Activity {
             //Enciende, apaga o cunsulta la temperatura
             if (!verify)
             {
-
-
-                // Building Parameters
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("deviceName", device.getName()));
-                if(!device.isLight())
-                    params.add(new BasicNameValuePair("action", ""));
-                else
-                    params.add(new BasicNameValuePair("action", String.valueOf(device.isState())));
-
-                // getting JSON Object
-                // Note that create Empleado url accepts POST method, Comentar para pruebas
-                ////JSONParser jsonParser = new JSONParser();
-                //JSONObject json = jsonParser.makeHttpRequest(url_login,"POST", params);
-
-                // check log cat fro response, comentar para pruebasdnf
-                //Log.d("Create Response", ((json !=null) ? json.toString():"Error"));
-                // check for success tag
-                //Descomentar para Pruebas, comentar para produccion
-                //JSONObject json = new JSONObject();
+                //json=returnParams(device);
                 json = new JSONObject();
 
                 try {
                     if (json != null) {
                         //int success = json.getInt(TAG_SUCCESS);
                         success = 1;
-
                         //String nombre = json.getString(TAG_NOMBRE);
-                        //String apellido = json.getString(TAG_APELLIDO);
+
 
                     } else {
                         json.getString("");
@@ -222,33 +180,10 @@ public class MainActivity extends Activity {
             }
             else
             {
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                //params.add(new BasicNameValuePair("deviceNameAll", device.getName()));
-                JSONParser jsonParser = new JSONParser();
-                //JSONObject json = jsonParser.makeHttpRequest(url_login,"POST", params);
-               // json = jsonParser.makeHttpRequest(url_login,"POST",null);
-                json = new JSONObject();
-                try {
-                    if (json != null) {
-                        success = 1;
-
-                        /*TURN_ON_LIGHT_ONE=json.getBoolean(LIGHT_ONE + "");
-                        TURN_ON_LIGHT_TWO=json.getBoolean(LIGHT_TWO+"");
-                        TURN_ON_LIGHT_THREE=json.getBoolean(LIGHT_THREE+"");*/
-
-                        //Para pruebas
-                        TURN_ON_LIGHT_ONE=!device.isState();
-                        TURN_ON_LIGHT_TWO=!device.isState();;
-                        TURN_ON_LIGHT_THREE=!device.isState();;
+                success = 1;
+                json= returnParams(device);
 
 
-
-                    }
-                }
-                catch (Exception e)
-                {
-
-                }
             }
 
             return null;
@@ -275,21 +210,16 @@ public class MainActivity extends Activity {
                 dialog.show();
 
             }
-            else {
+            else
+            {
 
                 ImageButton deviceOne;
-                ImageButton deviceTwo;
-                ImageButton deviceThree;
-                deviceOne = (ImageButton) findViewById(R.id.light1);
-                deviceTwo = (ImageButton) findViewById(R.id.light2);
-                deviceThree = (ImageButton) findViewById(R.id.light3);
-
-                if (TURN_ON_LIGHT_ONE)
+                deviceOne = (ImageButton) findViewById(R.id.light);
+                if (!TURN_ON_LIGHT_ONE)
                     deviceOne.setBackgroundResource(R.drawable.balas_predator);
-                if (TURN_ON_LIGHT_TWO)
-                    deviceTwo.setBackgroundResource(R.drawable.balas_predator);
-                if (TURN_ON_LIGHT_THREE)
-                    deviceThree.setBackgroundResource(R.drawable.balas_impact);
+                else
+                    deviceOne.setBackgroundResource(R.drawable.light_on);
+
 
                 try {
 
@@ -308,6 +238,32 @@ public class MainActivity extends Activity {
 
 
         }
+
+    }
+
+    private  JSONObject returnParams(Device device)
+    {
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        JSONObject json = null;
+        if(device!=null)
+        {
+            params.add(new BasicNameValuePair("method", device.getName()));
+            if (device.isLight())
+                params.add(new BasicNameValuePair("value", (device.isState() ? "1" : "0")));
+
+        }
+        else
+        {
+            params.add(new BasicNameValuePair("method", "states"));
+
+        }
+        JSONParser jsonParser = new JSONParser();
+        json = jsonParser.makeHttpRequest(url_login, "GET", params);
+
+        return  json;
+
+
+
 
     }
 

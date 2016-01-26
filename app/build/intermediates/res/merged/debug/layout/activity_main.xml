@@ -59,7 +59,7 @@ tools:context="com.jack.domoscrum.MainActivity">
         android:textSize="30dp" />
 
     <ImageButton
-        android:id="@+id/light1"
+        android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="3dp"
@@ -68,11 +68,11 @@ tools:context="com.jack.domoscrum.MainActivity">
         android:layout_gravity="center"
         android:gravity="center_vertical"
         android:text="@string/lifht1"
-        android:onClick="turnOnOffOne"
+        android:onClick="update"
         android:background="@drawable/light_on"/>
 
     <ImageButton
-        android:id="@+id/light2"
+        android:id="@+id/light"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="3dp"
@@ -80,22 +80,9 @@ tools:context="com.jack.domoscrum.MainActivity">
         android:layout_margin="5dp"
         android:layout_gravity="center"
         android:gravity="center_vertical"
-        android:onClick="turnOnOffTwo"
-
+        android:onClick="turnOnOff"
         android:background="@drawable/light_on"/>
 
-    <ImageButton
-        android:id="@+id/light3"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:paddingTop="3dp"
-        android:paddingBottom="5dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center"
-        android:gravity="center_vertical"
-        android:onClick="turnOnOffThree"
-
-        android:background="@drawable/light_on"/>
 
     <ImageButton
         android:id="@+id/temperature"
