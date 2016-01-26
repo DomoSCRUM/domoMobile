@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azul">#082B41</color>
+    <color name="negro">#000000</color>
+    <color name="rojo">#E72512</color>
+    <color name="verde">#0BB32F</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="accept">Accept</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Domo Scrum</string>
+    <string name="buscar">Search Register</string>
+    <string name="buy">Buy</string>
+    <string name="configure">Configure</string>
+    <string name="exit">Salir</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="insertar">Insert Register</string>
+    <string name="items">Items</string>
+    <string name="lifht1">Light 1</string>
+    <string name="light2">Light 2</string>
+    <string name="light3">Light 3</string>
+    <string name="listado">List Eemployees</string>
+    <string name="login">Login</string>
+    <string name="menu">Menu</string>
+    <string name="menu_settings">Settings</string>
+    <string name="password">Password</string>
+    <string name="price">Set Prices</string>
+    <string name="stock">Balance</string>
+    <string name="title_activity_comprar">Buy</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_main">Welcome!!</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_mobile_list">MobileList</string>
+    <string name="title_activity_saldos">Balance</string>
+    <string name="title_activity_splash">Domo Scrum</string>
+    <string name="titulo">Welcome</string>
+    <string name="viewlist">Shopping Cart</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

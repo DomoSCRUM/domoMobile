@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azul">#082B41</color>
+    <color name="verde">#0BB32F</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="accept">Accept</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Domo Scrum</string>
+    <string name="buscar">Buscar Registro</string>
+    <string name="buy">Comprar</string>
+    <string name="exit">Salir</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="insertar">Insertar Registro</string>
+    <string name="items">Poductos</string>
+    <string name="listado">Listado de Empleados</string>
+    <string name="menu">Menu</string>
+    <string name="menu_settings">Settings</string>
+    <string name="price">Configurar Precios</string>
+    <string name="stock">Saldos</string>
+    <string name="title_activity_comprar">Comprar</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_main">Bienvenido</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_mobile_list">MobileList</string>
+    <string name="title_activity_saldos">Saldos</string>
+    <string name="title_activity_splash">Domo Scrum</string>
+    <string name="titulo">Bienvenido</string>
+    <string name="viewlist">Ver Carro de compras</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

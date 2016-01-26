@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Menu" >
+    
+    
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bustersplayer"
+        android:orientation="vertical" >
+        
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingBottom="3dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/azul"           
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:textColor="@color/azul"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:text="@string/menu"
+            android:textColor="@color/azul"           
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/saldos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/boton"
+            android:onClick="saldos"
+            android:padding="3dp"
+            android:text="@string/stock"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/boton"
+            android:onClick="items"
+            android:padding="3dp"
+            android:text="@string/items"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/precios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/boton"
+            android:onClick="precios"
+            android:padding="3dp"
+            android:text="@string/price"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/comprar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/boton"
+            android:onClick="comprar"
+            android:padding="3dp"
+            android:text="@string/buy"
+            android:textColor="#FFFFFF" />
+        
+         <Button
+            android:id="@+id/salir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/boton"
+            android:onClick="salir"
+            android:padding="3dp"
+            android:text="@string/exit"
+            android:textColor="#FFFFFF" />
+        
+        
+
+    </LinearLayout>
+    
+ 
+
+</RelativeLayout>
+
+
+    
+
+
+

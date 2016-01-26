@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Domo Scrum</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="menu_settings">Opiones</string>
+    <string name="title_activity_main">Bienvenido</string>
+    <string name="titulo">Bienvenido</string>
+    <string name="insertar">Insertar Registro</string>
+    <string name="buscar">Buscar Registro</string>
+    <string name="listado">Listado de Empleados</string>
+    <string name="title_activity_login">Registro</string>
+    <string name="action_settings">Opciones</string>
+    <string name="accept">Aceptar</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="menu">Menu</string>
+    <string name="items">Productos</string>
+    <string name="buy">Comprar</string>
+    <string name="stock">Saldos</string>
+    <string name="viewlist">Ver Carro de compras</string>
+    <string name="price">Configurar Precios</string>
+    <string name="exit">Salir</string>
+    <string name="title_activity_saldos">Saldos</string>
+    <string name="title_activity_splash">Domo Scrum</string>
+    <string name="title_activity_comprar">Comprar</string>
+    <string name="title_activity_mobile_list">MobileList</string>
+    <string name="configure">Configurar</string>
+    <string name="login">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="lifht1">Luz 1</string>
+    <string name="light2">Luz 2</string>
+    <string name="light3">Luz 3</string>
+
+
+
+
+</resources>

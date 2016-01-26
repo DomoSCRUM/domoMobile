@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context="com.jack.domoscrum.MainActivity">
+
+<LinearLayout
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casa_domotica"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:text="@string/app_name"
+        android:textColor="@color/azul"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingBottom="3dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/azul"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:textColor="@color/azul"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:textColor="@color/rojo"
+        android:textSize="30dp" />
+
+    <ImageButton
+        android:id="@+id/light1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:text="@string/lifht1"
+        android:onClick="turnOnOffOne"
+        android:background="@drawable/light_on"/>
+
+    <ImageButton
+        android:id="@+id/light2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:onClick="turnOnOffTwo"
+
+        android:background="@drawable/light_on"/>
+
+    <ImageButton
+        android:id="@+id/light3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:onClick="turnOnOffThree"
+
+        android:background="@drawable/light_on"/>
+
+    <ImageButton
+        android:id="@+id/temperature"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:onClick="knowTemp"
+        android:tag="@string/accept"
+        android:background="@drawable/temperatura"/>
+
+    <ImageButton
+        android:id="@+id/exit"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:onClick="salir"
+        android:background="@drawable/temperatura"/>
+
+
+</LinearLayout>
+
+</RelativeLayout>

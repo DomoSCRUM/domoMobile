@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Comprar" >
+
+     <LinearLayout
+         android:id="@+id/content"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="@drawable/bustersplayer"
+         android:orientation="vertical" >
+
+          
+         <GridView
+             android:id="@+id/griditem"
+             android:layout_width="fill_parent"
+             android:layout_height="250dp"
+             android:layout_weight="0.28"
+             android:columnWidth="100dp"
+             android:gravity="center"
+             android:numColumns="2"
+             android:stretchMode="columnWidth" >             
+         </GridView>
+         
+
+         <Button
+             android:id="@+id/pagar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="3dp"
+             android:background="@drawable/boton"
+             android:onClick="comprarOnline"
+             android:padding="3dp"
+             android:text="@string/buy"
+             android:textColor="#FFFFFF" />
+         <Button
+             android:id="@+id/verLista"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="3dp"
+             android:background="@drawable/boton"
+             android:onClick="viewCarBuy"
+             android:padding="3dp"
+             android:text="@string/viewlist"
+             android:textColor="#FFFFFF" />
+     </LinearLayout>
+
+</RelativeLayout>
