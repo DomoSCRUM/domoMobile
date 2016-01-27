@@ -38,25 +38,16 @@ tools:context="com.jack.domoscrum.MainActivity">
         android:textColor="@color/azul"
         android:textSize="13dp" />
 
-    <TextView
-        android:id="@+id/fecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
-        android:textColor="@color/azul"
-        android:textSize="13dp" />
 
     <TextView
         android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="left"
         android:paddingBottom="3dp"
         android:paddingTop="3dp"
         android:textColor="@color/rojo"
-        android:textSize="30dp" />
+        android:textSize="13dp" />
 
     <ImageButton
         android:id="@+id/update"

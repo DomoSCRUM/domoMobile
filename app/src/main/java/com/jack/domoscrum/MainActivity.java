@@ -26,26 +26,22 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     private TextView nameComplete;
-    private TextView fecha;
     private TextView temperature;
     private ProgressDialog pDialog;
     private int success=-1;
-    private static final int LIGHT_ONE = 1;
-    private static final int TEMPERATURE = 4;
-    private boolean TURN_ON_LIGHT_ONE=false;
     private String IP = "10.0.2.2";
     private String url_login = "http://" + IP+ ":8080/domoScrum";
     private JSONObject json=null;
-
+    private Device deviceLight=null;
+    private Device deviceTemp=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         nameComplete = (TextView) findViewById(R.id.textView);
-        fecha =(TextView) findViewById(R.id.fecha);
+
         temperature = (TextView) findViewById(R.id.temp);
-        fecha.setText(calcularFecha());
 
         SharedPreferences sharedPref = getSharedPreferences("PASA",
                 MODE_PRIVATE);
@@ -63,17 +59,26 @@ public class MainActivity extends Activity {
         //setea la direccion del shareprefrence
         IP = sharedPref.getString("ip", IP);
         url_login = "http://" + IP+ ":8080/domoScrum";
+        beginDevice();
 
 
     }
 
-
+    private void beginDevice() {
+        deviceLight= new Device();
+        deviceLight.setId(findViewById(R.id.light).getId());
+        deviceLight.setName("light");
+        deviceTemp= new Device();
+        deviceTemp.setId(findViewById(R.id.temp).getId());
+        deviceTemp.setName("temp");
+        deviceTemp.setIsLight(false);
+    }
 
 
     public String calcularFecha()
     {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String formattedDate1 = df1.format(c.getTime());
         return formattedDate1;
     }
@@ -98,21 +103,14 @@ public class MainActivity extends Activity {
 
     public void turnOnOff(View v)
     {
-        Device device= new Device();
-        device.setId(findViewById(R.id.light).getId());
-        device.setName("light");
-        new DeviceAction(device).execute();
 
-
+        new DeviceAction(deviceLight).execute();
     }
 
     public void knowTemp(View v)
     {
-        Device device= new Device();
-        device.setId(findViewById(R.id.temp).getId());
-        device.setName("temp");
-        device.setIsLight(false);
-        new DeviceAction(device).execute();
+
+        new DeviceAction(deviceTemp).execute();
 
         //new DeviceAction(TEMPERATURE).execute();
     }
@@ -123,7 +121,7 @@ public class MainActivity extends Activity {
     class DeviceAction extends AsyncTask<String, String, String>
     {
 
-        private boolean verify= true;
+        private boolean verify= false;
         private Device device=null;
 
         public DeviceAction(boolean verify) {
@@ -147,7 +145,7 @@ public class MainActivity extends Activity {
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setMessage("Consultando estado");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
+            pDialog.setCancelable(false);
             pDialog.show();
         }
 
@@ -166,7 +164,12 @@ public class MainActivity extends Activity {
                     if (json != null) {
                         //int success = json.getInt(TAG_SUCCESS);
                         success = 1;
-                        //String nombre = json.getString(TAG_NOMBRE);
+                        //int state = json.getInt(TAG_STATE);
+                        /*if(state == 0)
+                            device.setState(false);
+                        else
+                            device.setState(true);*/
+                        device.setState(!device.isState());
 
 
                     } else {
@@ -181,7 +184,10 @@ public class MainActivity extends Activity {
             else
             {
                 success = 1;
-                json= returnParams(device);
+                //json= returnParams(device);
+                json = new JSONObject();
+
+
 
 
             }
@@ -212,24 +218,54 @@ public class MainActivity extends Activity {
             }
             else
             {
+                if(verify) {
 
-                ImageButton deviceOne;
-                deviceOne = (ImageButton) findViewById(R.id.light);
-                if (!TURN_ON_LIGHT_ONE)
-                    deviceOne.setBackgroundResource(R.drawable.balas_predator);
-                else
-                    deviceOne.setBackgroundResource(R.drawable.light_on);
+                    ImageButton deviceOne;
+                    deviceOne = (ImageButton) findViewById(R.id.light);
+
+                    try {
+                        //int state=json.getString("temp");
+                        //json.getInt("light");
+                         /*if(state == 0)
+                            deviceLight.setState(false);
+                        else
+                            deviceLight.setState(true);*/
+
+                        if (!deviceLight.isState())
+                            deviceOne.setBackgroundResource(R.drawable.balas_predator);
+                        else
+                            deviceOne.setBackgroundResource(R.drawable.light_on);
+
+                        //deviceTemp.setValue("25°C " + calcularFecha());
+                        //temperature.setText(deviceTemp.getValue());
+                        //para pruebas
+                        temperature.setText("25°C " + calcularFecha());
 
 
-                try {
-
-                    //temperature.setText(json.getString("temperature"));
-                    //para pruebas
-                    temperature.setText("25°C");
+                    } //catch (JSONException e) {
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                //catch (JSONException e)
-                catch (Exception e) {
-                    temperature.setText("N/A");
+                else
+                {
+                    if(device.isLight())
+                    {
+                        ImageButton deviceOne;
+                        deviceOne = (ImageButton) findViewById(R.id.light);
+                        if (device.isState())
+                            deviceOne.setBackgroundResource(R.drawable.balas_predator);
+                        else
+                            deviceOne.setBackgroundResource(R.drawable.light_on);
+                    }
+                    else
+                    {
+                        //temperature.setText(json.getString("temperature"));
+                        //para pruebas
+                        temperature.setText("28°C "+calcularFecha());
+
+                    }
+
                 }
             }
 
@@ -258,7 +294,7 @@ public class MainActivity extends Activity {
 
         }
         JSONParser jsonParser = new JSONParser();
-        json = jsonParser.makeHttpRequest(url_login, "GET", params);
+        //json = jsonParser.makeHttpRequest(url_login, "GET", params);
 
         return  json;
 

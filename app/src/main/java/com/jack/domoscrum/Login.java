@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.method.BaseKeyListener;
@@ -246,7 +247,12 @@ public class Login extends Activity {
 					editor.commit();
 					//finish();
 
-					Intent i = new Intent(getApplicationContext(), MainActivity.class);
+					Intent i = new Intent("com.google.xtreme.MainActivity");
+
+					//Intent i = new Intent(getApplicationContext(), MainActivity.class);
+					/*Intent i = new Intent(Settings.ACTION_ADD_ACCOUNT);
+					i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+					i.putExtra(Settings.EXTRA_AUTHORITIES, new String[]{"com.google.xtreme.MainActivity"});*/
 					i.putExtra("nameComplete", nombre + " " + apellido);
 					startActivity(i);
 					finish();

@@ -1,9 +1,11 @@
 package com.jack.domoscrum;
 
+import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.widget.TextView;
@@ -36,6 +38,10 @@ public class Splash extends Activity {
 	    	           	boolean hayUsuario = sharedPref.getBoolean("User", false);
 	    	           	if (hayUsuario) {
 	    	           		String nombre = sharedPref.getString("nombre", "");
+//							Intent addAccountIntent = new Intent(Settings.ACTION_ADD_ACCOUNT);
+//							addAccountIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+//							addAccountIntent.putExtra(Settings.EXTRA_AUTHORITIES, new String[]{"com.google.xtreme.MainActivity"});
+//							startActivity(addAccountIntent);
 	    	           		startActivity(new Intent("com.google.xtreme.MainActivity"));
 	    					
 	    	           		// Nunca modificar algo del Layout antes de establecerlo en pantalla

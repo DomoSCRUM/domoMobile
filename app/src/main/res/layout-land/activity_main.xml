@@ -35,20 +35,19 @@
             android:gravity="left"
             android:paddingBottom="3dp"
             android:paddingTop="10dp"
-            android:text="adsadsadsa"
-            android:textColor="@color/negro"
+            android:textColor="@color/azul"
             android:textSize="13dp" />
 
         <TextView
-            android:id="@+id/fecha"
+            android:id="@+id/temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="left"
             android:paddingBottom="3dp"
-            android:paddingTop="3dp"
-            android:text="OOOOO"
+            android:paddingTop="10dp"
             android:textColor="@color/negro"
             android:textSize="13dp" />
+
 
         <GridLayout
 
@@ -86,11 +85,10 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:onClick="turnOnOff"
-
                 android:background="@drawable/light_on"/>
 
             <ImageButton
-                android:id="@+id/temp"
+                android:id="@+id/temperature"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:paddingTop="3dp"
@@ -99,7 +97,6 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:onClick="knowTemp"
-
                 android:background="@drawable/light_on"/>
 
             <ImageButton
@@ -113,7 +110,6 @@
                 android:gravity="center_vertical"
                 android:onClick="salir"
                 android:background="@drawable/temperatura"/>
-
 
         </GridLayout>
 
