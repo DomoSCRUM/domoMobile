@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.logging.Logger;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -25,14 +27,10 @@ import android.util.Log;
 
 public class JSONParser {
 
-	static InputStream is = null;
+	InputStream is = null;
 	static JSONObject jObj = null;
 	static String json = "";
 
-	// constructor
-	public JSONParser() {
-
-	}
 
 	// function get json from url
 	// by making HTTP POST or GET mehtod
@@ -73,16 +71,16 @@ public class JSONParser {
 			
 
 		} catch (UnsupportedEncodingException e) {
-			//e.printStackTrace();
-			Log.e("JSON Parser", "Error UnsupportedEncodingException " + e.toString());
+
+			Log.e("JSON Parser", "Error UnsupportedEncodingException ", e);
 			return null;
 		} catch (ClientProtocolException e) {
-			//e.printStackTrace();
-			Log.e("JSON Parser", "Error ClientProtocolException " + e.toString());
+
+			Log.e("JSON Parser", "Error ClientProtocolException ", e);
 			return null;
 		} catch (IOException e) {
-			//e.printStackTrace();
-			Log.e("JSON Parser", "Error IOException " + e.toString());
+
+			Log.e("JSON Parser", "Error IOException " , e);
 			return null;
 		}
 
@@ -97,7 +95,7 @@ public class JSONParser {
 			is.close();
 			json = sb.toString();
 		} catch (Exception e) {
-			Log.e("Buffer Error", "Error converting result " + e.toString());
+			Log.e("Buffer Error", "Error converting result ", e);
 			return null;
 		}
 
@@ -105,7 +103,7 @@ public class JSONParser {
 		try {
 			jObj = new JSONObject(json);
 		} catch (JSONException e) {
-			Log.e("JSON Parser", "Error parsing data " + e.toString());
+			Log.e("JSON Parser", "Error parsing data " ,e);
 			return null;
 		}
 

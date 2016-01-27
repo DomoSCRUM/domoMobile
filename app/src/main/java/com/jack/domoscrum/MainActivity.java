@@ -204,21 +204,7 @@ public class MainActivity extends Activity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
-            if(success == -1)
-            {
-                AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
-                        //AlertDialog dialog = new AlertDialog.Builder(this)
-                        .setTitle("Error")
-                        .setMessage("Error de Conexion con el servidor")
-                        .setPositiveButton("OK",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                    }
-                                }).create();
-                dialog.show();
-
-            }
-            else
+            if(success > -1)
             {
                 if(verify) {
 
@@ -267,12 +253,22 @@ public class MainActivity extends Activity {
                         temperature.setText("28°C "+calcularFecha());
 
                     }
-
                 }
             }
+            else
+            {
+                AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                        //AlertDialog dialog = new AlertDialog.Builder(this)
+                        .setTitle("Error")
+                        .setMessage("Error de Conexion con el servidor")
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                }).create();
+                dialog.show();
 
-
-
+            }
 
 
         }
