@@ -30,14 +30,9 @@ public class Login extends Activity {
 	EditText name;
 	EditText pass;
 	String directionIP="";
-	//JSONArray usuario = null;
-	//ArrayList<HashMap<String, String>> usuarioList;
-	public static String IP = "10.0.2.2";
-	public static String url_login = "http://" + IP+ "/xtreme/login.php";
+	public String IP = "10.0.2.2";
+	public String url_login = "http://" + IP+ "/xtreme/login.php";
 	// JSON Node names
-	public static final String TAG_SUCCESS = "success";
-	public static final String TAG_NOMBRE = "nombres";
-	public static final String TAG_APELLIDO = "apellidos";
 	public int success=0;
 
 	@Override
@@ -225,8 +220,8 @@ public class Login extends Activity {
 
 					//String nombre = json.getString(TAG_NOMBRE);
 					//String apellido = json.getString(TAG_APELLIDO);
-					String nombre= "Jhon Albert";
-					String apellido= "Torres";
+					String nombre= "admin";
+					String apellido= "DomoScrum";
 
 					// successfully created Empleado
 					SharedPreferences sharedPref = getSharedPreferences("PASA",

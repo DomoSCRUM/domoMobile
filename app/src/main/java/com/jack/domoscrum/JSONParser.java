@@ -28,8 +28,8 @@ import android.util.Log;
 public class JSONParser {
 
 	InputStream is = null;
-	static JSONObject jObj = null;
-	static String json = "";
+	JSONObject jObj = null;
+	String json = "";
 
 
 	// function get json from url

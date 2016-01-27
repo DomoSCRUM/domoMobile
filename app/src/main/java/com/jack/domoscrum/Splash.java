@@ -58,9 +58,9 @@ public class Splash extends Activity {
     	               //finish();
     	          }
                   catch(Exception e){
-                      //Thread exception
+
 					  finish();
-                      System.err.println(e.toString());
+					  throw new RuntimeException(e);
                  }
 			 }
        };

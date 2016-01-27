@@ -12,12 +12,12 @@
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/light_on.png"
     },
     {
-        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/logoxtremebuster.jpg",
-        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/logoxtremebuster.jpg"
-    },
-    {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/casa_domotica.jpg",
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/casa_domotica.jpg"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/logoxtremebuster.jpg",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable-hdpi/logoxtremebuster.jpg"
     },
     {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/bustersplayer.png",
