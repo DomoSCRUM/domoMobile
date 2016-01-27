@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends Activity {
 
@@ -78,9 +79,10 @@ public class MainActivity extends Activity {
     public String calcularFecha()
     {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",Locale.US);
         String formattedDate1 = df1.format(c.getTime());
         return formattedDate1;
+
     }
 
     public void salir(View v)
@@ -90,7 +92,7 @@ public class MainActivity extends Activity {
         editor.clear();	//Remueve todos los valores del SharedPreference,
         //cuando se ejecute commit() solo permaneceran 			//los valores definidos en este Editor
         editor.putBoolean("User", false);//Esta preferencia permanecer
-        editor.commit();
+        editor.apply();
         finish();
         startActivity(new Intent("com.google.xtreme.CLEARSPLASH"));
     }

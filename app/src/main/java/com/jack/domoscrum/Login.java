@@ -17,20 +17,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.method.BaseKeyListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 public class Login extends Activity {
 
 	// Progress Dialog
-	private ProgressDialog pDialog;
+	public ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	EditText name;
 	EditText pass;
@@ -38,12 +33,12 @@ public class Login extends Activity {
 	//JSONArray usuario = null;
 	//ArrayList<HashMap<String, String>> usuarioList;
 	public static String IP = "10.0.2.2";
-	private static String url_login = "http://" + IP+ "/xtreme/login.php";
+	public static String url_login = "http://" + IP+ "/xtreme/login.php";
 	// JSON Node names
-	private static final String TAG_SUCCESS = "success";
-	private static final String TAG_NOMBRE = "nombres";
-	private static final String TAG_APELLIDO = "apellidos";
-	private int success=0;
+	public static final String TAG_SUCCESS = "success";
+	public static final String TAG_NOMBRE = "nombres";
+	public static final String TAG_APELLIDO = "apellidos";
+	public int success=0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,28 +49,23 @@ public class Login extends Activity {
 		pass = (EditText) findViewById(R.id.password);
 		// Create button
 		Button login = (Button) findViewById(R.id.acceder);
-		// button click event
-		login.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				if (validateInput())
-					// creating new Empleado in background thread
-					new LoginAcepted().execute();
-			}
-		});
 		Button configureConn = (Button) findViewById(R.id.configure);
-		// button click event
-		configureConn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
 
-				configureIP();
-			}
-		});
 
 	}
 
-	private void configureIP() {
+	public void acceder(View view) {
+		if (validateInput())
+			// creating new Empleado in background thread
+			new LoginAcepted().execute();
+	}
+
+    public void configure(View view) {
+
+        configureIP();
+    }
+
+	public void configureIP() {
 		final EditText inputIp = new EditText(this);
 		inputIp.setKeyListener(IPAddressKeyListener.getInstance());
 		inputIp.setText(directionIP);
@@ -101,7 +91,7 @@ public class Login extends Activity {
 		dialog.show();
 	}
 
-	private void validateIP(EditText input) {
+	public void validateIP(EditText input) {
 
 		if(input.getText().toString().isEmpty())
 		{
@@ -131,7 +121,7 @@ public class Login extends Activity {
 						MODE_PRIVATE);
 				SharedPreferences.Editor editor = sharedPref.edit();
 				editor.putString("ip", input.getText().toString());
-				editor.commit();
+				editor.apply();
 				directionIP=input.getText().toString();
 			}
 			else
@@ -151,7 +141,7 @@ public class Login extends Activity {
 		}
 	}
 
-	private boolean validateInput()
+	public boolean validateInput()
 	{
 		if(name.getText().toString().isEmpty()||pass.getText().toString().isEmpty())
 		{
@@ -244,7 +234,7 @@ public class Login extends Activity {
 					SharedPreferences.Editor editor = sharedPref.edit();
 					editor.putString("nombre", nombre + " " + apellido);
 					editor.putBoolean("User", true);
-					editor.commit();
+					editor.apply();
 					//finish();
 
 					Intent i = new Intent("com.google.xtreme.MainActivity");

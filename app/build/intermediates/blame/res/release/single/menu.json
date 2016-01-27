@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/release/menu/login.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/menu/login.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/release/menu/splash.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/menu/splash.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/release/menu/menu.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/menu/menu.xml"
+    }
+]

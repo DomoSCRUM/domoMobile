@@ -4,10 +4,6 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -33,18 +29,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Menu"
-            android:label="@string/title_activity_menu">
-            <intent-filter>
-                <action android:name="com.google.xtreme.MENU" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Saldos"
-            android:label="@string/title_activity_saldos"></activity>
-        <activity
             android:name=".Splash"
             android:label="@string/title_activity_splash">
             <intent-filter>
@@ -53,12 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Comprar"
-            android:label="@string/title_activity_comprar"></activity>
-        <activity
-            android:name=".MobileList"
-            android:label="@string/title_activity_mobile_list"></activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main">

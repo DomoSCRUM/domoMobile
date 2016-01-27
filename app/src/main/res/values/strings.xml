@@ -24,5 +24,10 @@
     <string name="title_activity_splash">Domo Scrum</string>
     <string name="title_activity_comprar">Comprar</string>
     <string name="title_activity_mobile_list">MobileList</string>
+    <string name="configure">Configure</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="lifht1">Light 1</string>
+
 
 </resources>
