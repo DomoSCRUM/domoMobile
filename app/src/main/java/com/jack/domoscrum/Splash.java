@@ -60,7 +60,7 @@ public class Splash extends Activity {
                   catch(Exception e){
 
 					  finish();
-					  throw new RuntimeException(e);
+					  //throw new RuntimeException(e);
                  }
 			 }
        };

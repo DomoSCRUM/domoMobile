@@ -8,6 +8,7 @@ android {
         applicationId "com.jack.domoscrum"
         minSdkVersion 14
         targetSdkVersion 17
+       // multiDexEnabled true
 
     }
     buildTypes {
@@ -16,23 +17,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-    sourceSets {
-        instrumentTest.setRoot("src/main/com.jack/test")
-    }
+
+    /*sourceSets {
+        instrumentTest.setRoot("src/main/com.jack.test")
+    }*/
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
     productFlavors {
     }
-    lintOptions {
+    /*lintOptions {
         disable 'InvalidPackage'
-    }
+    }*/
 }
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.0'
-    testCompile 'org.robolectric:robolectric:3.0'
+    //testCompile 'org.robolectric:robolectric:3.0'
     compile 'junit:junit:4.8.2'
-    compile 'org.robolectric:robolectric:3.0'
+    //compile 'org.robolectric:robolectric:3.0'
 }

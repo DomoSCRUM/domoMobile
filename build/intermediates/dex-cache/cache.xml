@@ -8,5 +8,12 @@
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
         <dex dex="/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0_4b082d0e48b47fece0716df1edc848cff9810cd0.jar" />
     </item>
+    <item
+        jar="/home/Jhon_Albert/.gradle/caches/modules-2/files-2.1/junit/junit/4.8.2/c94f54227b08100974c36170dcb53329435fe5ad/junit-4.8.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c94f54227b08100974c36170dcb53329435fe5ad">
+        <dex dex="/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/pre-dexed/debug/junit-4.8.2_895493e643ebd9c6b62361f37698906296095781.jar" />
+    </item>
 
 </items>

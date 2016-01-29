@@ -58,7 +58,9 @@ public class JSONParser {
 				
 			}else if(method == "GET"){
 				// request method is GET
-				DefaultHttpClient httpClient = new DefaultHttpClient();
+				final HttpParams httpParams = new BasicHttpParams();
+				HttpConnectionParams.setConnectionTimeout(httpParams, 3000);
+				DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
 				if(params !=null) {
 					String paramString = URLEncodedUtils.format(params, "utf-8");
 					url += "?" + paramString;
@@ -72,15 +74,15 @@ public class JSONParser {
 
 		} catch (UnsupportedEncodingException e) {
 
-			Log.e("JSON Parser", "Error UnsupportedEncodingException ", e);
+			//Log.e("JSON Parser", "Error UnsupportedEncodingException ", e);
 			return null;
 		} catch (ClientProtocolException e) {
 
-			Log.e("JSON Parser", "Error ClientProtocolException ", e);
+			//Log.e("JSON Parser", "Error ClientProtocolException ", e);
 			return null;
 		} catch (IOException e) {
 
-			Log.e("JSON Parser", "Error IOException " , e);
+			//Log.e("JSON Parser", "Error IOException " , e);
 			return null;
 		}
 
@@ -93,9 +95,9 @@ public class JSONParser {
 				sb.append(line + "\n");
 			}
 			is.close();
-			json = sb.toString();
+			json = "{result:"+sb.toString().replace(",","_")+"}";
 		} catch (Exception e) {
-			Log.e("Buffer Error", "Error converting result ", e);
+			//Log.e("Buffer Error", "Error converting result ", e);
 			return null;
 		}
 
@@ -103,7 +105,8 @@ public class JSONParser {
 		try {
 			jObj = new JSONObject(json);
 		} catch (JSONException e) {
-			Log.e("JSON Parser", "Error parsing data " ,e);
+
+			//Log.e("JSON Parser", "Error parsing data " ,e);
 			return null;
 		}
 
