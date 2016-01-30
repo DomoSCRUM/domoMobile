@@ -185,36 +185,30 @@ public class MainActivity extends Activity {
             }
             else
             {
-                success = true;
+
                 json= returnParams(device);
                 try
                 {
-                    String result=json.getString(TAG_STATE);
-                    String values[] = result.split("_");
-                    for(int j=0;j< values.length;j++)
+                    if(json != null)
                     {
-                        if(j==0){
-                            int state = Integer.parseInt(values[j]);
-                            if(state == 0)
-                                deviceLight.setState(false);
-                            else
-                                deviceLight.setState(true);
-                        }
-                        else
-                        {
-                            deviceTemp.setValue(values[j].replace("_","."));
+                        success = true;
+                        String result = json.getString(TAG_STATE);
+                        String values[] = result.split("_");
+                        for (int j = 0; j < values.length; j++) {
+                            if (j == 0) {
+                                int state = Integer.parseInt(values[j]);
+                                if (state == 0)
+                                    deviceLight.setState(false);
+                                else
+                                    deviceLight.setState(true);
+                            } else {
+                                deviceTemp.setValue(values[j].replace("_", "."));
+                            }
                         }
                     }
-
-
-
-
                 }catch (JSONException e)
                 {
-
-                    Log.e("JSON Parser", "Error parsing data " ,e);
-
-
+                    Log.e("JSON Parser", "Error parsing data ");
                 }
 
 
