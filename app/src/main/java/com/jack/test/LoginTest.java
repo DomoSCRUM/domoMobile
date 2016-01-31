@@ -1,30 +1,39 @@
 package com.jack.test;
 
-import android.content.Intent;
-
 import com.jack.domoscrum.Login;
-import com.jack.domoscrum.R;
+
+import junit.framework.TestCase;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-//import org.robolectric.Robolectric;
-//import org.robolectric.RobolectricGradleTestRunner;
 
+import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
-
+import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Jhon_Albert on 27/01/16.
+ * Created by Jhon_Albert on 30/01/16.
  */
+public class LoginTest extends TestCase {
 
-//@RunWith(RobolectricGradleTestRunner.class)
-public class LoginTest   {
+    public void setUp() throws Exception {
+        super.setUp();
 
-   /* @Test
-    public void clickingLogin_shouldStartLoginActivity() {
-        Login activity = Robolectric.setupActivity(Login.class);
-        activity.findViewById(R.id.light).performClick();
-        Intent expectedIntent = new Intent(activity, Login.class);
-        //assertThat(shadowOf(activity).getNextStartedActivity()).isEqualTo(expectedIntent);
-    }*/
+    }
+
+    public void tearDown() throws Exception {
+
+    }
+
+    public void testValidateIP() throws Exception {
+
+
+    }
+
+    @Test
+    public void testValidateInput() throws Exception {
+
+       // assertThat();
+
+
+    }
 }

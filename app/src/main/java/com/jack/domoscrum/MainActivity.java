@@ -234,9 +234,9 @@ public class MainActivity extends Activity {
                     deviceOne = (ImageButton) findViewById(R.id.light);
 
                     if (!deviceLight.isState())
-                        deviceOne.setBackgroundResource(R.drawable.balas_predator);
+                        deviceOne.setBackgroundResource(R.drawable.luz_off);
                     else
-                        deviceOne.setBackgroundResource(R.drawable.light_on);
+                        deviceOne.setBackgroundResource(R.drawable.luz_on);
 
                     temperature.setText(deviceTemp.getValue() +" "+ calcularFecha());
                     //para pruebas
@@ -251,9 +251,9 @@ public class MainActivity extends Activity {
                         ImageButton deviceOne;
                         deviceOne = (ImageButton) findViewById(R.id.light);
                         if (device.isState())
-                            deviceOne.setBackgroundResource(R.drawable.light_on);
+                            deviceOne.setBackgroundResource(R.drawable.luz_on);
                         else
-                            deviceOne.setBackgroundResource(R.drawable.balas_predator);
+                            deviceOne.setBackgroundResource(R.drawable.luz_off);
                     }
                     else
                     {

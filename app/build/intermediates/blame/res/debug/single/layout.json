@@ -8,6 +8,18 @@
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/layout/activity_main.xml"
     },
     {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/layout/yellow_toast.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/layout/yellow_toast.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/layout/red_toast.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/layout/red_toast.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/layout/blue_toast.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/layout/blue_toast.xml"
+    },
+    {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/layout/activity_login.xml"
     }

@@ -1,6 +1,66 @@
 [
     {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/login.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/login.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/yellow.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/yellow.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/luz_on.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/luz_on.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/yellowcustom_toast.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/yellowcustom_toast.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/temperature.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/temperature.png"
+    },
+    {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/boton.xml",
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/boton.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/exit.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/exit.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/onlydp.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/onlydp.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/redcustom_toast.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/redcustom_toast.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/logo_domo_srcum.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/logo_domo_srcum.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/bluestom_toast.xml",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/bluestom_toast.xml"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/blue.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/blue.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/red.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/red.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/luz_off.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/luz_off.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/home_background.jpg",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/home_background.jpg"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/update.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/update.png"
     }
 ]

@@ -12,15 +12,21 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends Activity {
 
@@ -35,6 +41,7 @@ public class Login extends Activity {
 	// JSON Node names
 	public int success=0;
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,10 +49,6 @@ public class Login extends Activity {
 		// Edit Text
 		name = (EditText) findViewById(R.id.name);
 		pass = (EditText) findViewById(R.id.password);
-		// Create button
-		Button login = (Button) findViewById(R.id.acceder);
-		Button configureConn = (Button) findViewById(R.id.configure);
-
 
 	}
 
@@ -90,15 +93,15 @@ public class Login extends Activity {
 
 		if(input.getText().toString().isEmpty())
 		{
-			AlertDialog message = new AlertDialog.Builder(Login.this)
-					.setTitle("Error")
-					.setMessage("Por favor ingrese la direccion IP")
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-								}
-							}).create();
-			message.show();
+			Toast customtoast=new Toast(getApplicationContext());
+			LayoutInflater inflater=getLayoutInflater();
+			View customToastroot =inflater.inflate(R.layout.yellow_toast, null);
+			TextView msg= (TextView) customToastroot.findViewById(R.id.txtMensaje);
+			msg.setText("Por favor ingrese la direccion IP");
+			customtoast.setView(customToastroot);
+			customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+			customtoast.setDuration(Toast.LENGTH_LONG);
+			customtoast.show();
 		}
 		else
 		{
@@ -121,7 +124,7 @@ public class Login extends Activity {
 			}
 			else
 			{
-				AlertDialog message = new AlertDialog.Builder(Login.this)
+				/*AlertDialog message = new AlertDialog.Builder(Login.this)
 						.setTitle("Error")
 						.setMessage("Direccion IP Invalida")
 						.setPositiveButton("OK",
@@ -129,7 +132,31 @@ public class Login extends Activity {
 									public void onClick(DialogInterface dialog, int which) {
 									}
 								}).create();
-				message.show();
+				message.show();*/
+				Toast toast3 = new Toast(getApplicationContext());
+
+				LayoutInflater inflater = getLayoutInflater();
+				View layout = inflater.inflate(R.layout.yellow_toast,
+						(ViewGroup) findViewById(R.id.lytLayout));
+
+				TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+				txtMsg.setText("Direccion IP Invalida");
+
+				toast3.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+				toast3.setDuration(Toast.LENGTH_LONG);
+				toast3.setView(layout);
+				toast3.show();
+
+				/*Toast customtoast=new Toast(getApplicationContext());
+				LayoutInflater inflater=getLayoutInflater();
+				View customToastroot =inflater.inflate(R.layout.yellow_toast, null);
+				TextView msg= (TextView) findViewById(R.id.txtMensaje);
+				msg.setText("Direccion IP Invalida");
+				customtoast.setView(customToastroot);
+				customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+				customtoast.setDuration(Toast.LENGTH_LONG);
+
+				customtoast.show();*/
 
 			}
 
@@ -140,31 +167,35 @@ public class Login extends Activity {
 	{
 		if(name.getText().toString().isEmpty()||pass.getText().toString().isEmpty())
 		{
-			AlertDialog dialog = new AlertDialog.Builder(Login.this)
-					//AlertDialog dialog = new AlertDialog.Builder(this)
-					.setTitle("Error")
-					.setMessage("Por favor ingrese el usuario y/o contraseña")
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-								}
-							}).create();
-			dialog.show();
+
+			Toast customToast = new Toast(getApplicationContext());
+
+			LayoutInflater inflater = getLayoutInflater();
+			View layout = inflater.inflate(R.layout.red_toast,
+					(ViewGroup) findViewById(R.id.lytLayout));
+
+			TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+			txtMsg.setText("Por favor ingrese el usuario y/o contraseña");
+
+			customToast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+			customToast.setDuration(Toast.LENGTH_LONG);
+			customToast.setView(layout);
+			customToast.show();
+
 			return false;
 
 		}
 		if(directionIP.isEmpty())
 		{
-			AlertDialog dialog = new AlertDialog.Builder(Login.this)
-					//AlertDialog dialog = new AlertDialog.Builder(this)
-					.setTitle("Error")
-					.setMessage("Por favor configure la direccion IP del servidor")
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-								}
-							}).create();
-			dialog.show();
+			Toast customtoast=new Toast(getApplicationContext());
+			LayoutInflater inflater=getLayoutInflater();
+			View customToastroot =inflater.inflate(R.layout.yellow_toast, null);
+			TextView msg= (TextView) customToastroot.findViewById(R.id.txtMensaje);
+			msg.setText("Por favor configure la direccion IP del servidor");
+			customtoast.setView(customToastroot);
+			customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+			customtoast.setDuration(Toast.LENGTH_LONG);
+			customtoast.show();
 			return false;
 
 
@@ -248,8 +279,17 @@ public class Login extends Activity {
 					json.getString("");
 				}
 			} catch (JSONException e) {
-				e.printStackTrace();
-				Log.e("Error, JSONException", ((json != null) ? json.toString() : e.getStackTrace().toString()));
+				//e.printStackTrace();
+				Toast customtoast=new Toast(getApplicationContext());
+				LayoutInflater inflater=getLayoutInflater();
+				View customToastroot =inflater.inflate(R.layout.red_toast, null);
+				TextView msg= (TextView) customToastroot.findViewById(R.id.txtMensaje);
+				msg.setText("Error al parsear los datos");
+				customtoast.setView(customToastroot);
+				customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+				customtoast.setDuration(Toast.LENGTH_LONG);
+				customtoast.show();
+				//Log.e("Error, JSONException", ((json != null) ? json.toString() : e.getStackTrace().toString()));
 			}
 
 			return null;
