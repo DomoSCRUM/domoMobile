@@ -1,23 +1,26 @@
 package com.jack.domoscrum;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
-import android.provider.CallLog;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -167,11 +170,20 @@ public class MainActivity extends Activity {
                     if (json != null) {
                         //int success = json.getInt(TAG_SUCCESS);
                         success = true;
-                        int state = json.getInt(TAG_STATE);
-                        if(state == 0)
-                            device.setState(false);
+                        if(device.isLight())
+                        {
+                            int state = json.getInt(TAG_STATE);
+                            if(state == 0)
+                                deviceLight.setState(false);
+                            else
+                                deviceLight.setState(true);
+
+                        }
                         else
-                            device.setState(true);
+                        {
+                            deviceTemp.setValue(json.getString(TAG_STATE));
+                        }
+
                         //device.setState(!device.isState());
                         //device.setState(!device.isState());
 
@@ -180,7 +192,16 @@ public class MainActivity extends Activity {
 
                 } catch (JSONException e) {
                     //e.printStackTrace();
-                    Log.e("Error", "JSONException", e);
+                   // Log.e("Error", "JSONException", e);
+                    Toast customtoast=new Toast(getApplicationContext());
+                    LayoutInflater inflater=getLayoutInflater();
+                    View customToastroot =inflater.inflate(R.layout.red_toast, null);
+                    TextView msg= (TextView) customToastroot.findViewById(R.id.txtMensaje);
+                    msg.setText("Error al parsear los datos");
+                    customtoast.setView(customToastroot);
+                    customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+                    customtoast.setDuration(Toast.LENGTH_SHORT);
+                    customtoast.show();
                 }
             }
             else
@@ -208,7 +229,16 @@ public class MainActivity extends Activity {
                     }
                 }catch (JSONException e)
                 {
-                    Log.e("JSON Parser", "Error parsing data ");
+                   // Log.e("JSON Parser", "Error parsing data ");
+                    Toast customtoast=new Toast(getApplicationContext());
+                    LayoutInflater inflater=getLayoutInflater();
+                    View customToastroot =inflater.inflate(R.layout.red_toast, null);
+                    TextView msg= (TextView) customToastroot.findViewById(R.id.txtMensaje);
+                    msg.setText("Error al parsear los datos");
+                    customtoast.setView(customToastroot);
+                    customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
+                    customtoast.setDuration(Toast.LENGTH_SHORT);
+                    customtoast.show();
                 }
 
 
@@ -238,7 +268,7 @@ public class MainActivity extends Activity {
                     else
                         deviceOne.setBackgroundResource(R.drawable.luz_on);
 
-                    temperature.setText(deviceTemp.getValue() +" "+ calcularFecha());
+                    temperature.setText(deviceTemp.getValue() +"°C\n"+ calcularFecha());
                     //para pruebas
                     //temperature.setText("25°C " + calcularFecha());
 
@@ -250,14 +280,14 @@ public class MainActivity extends Activity {
                     {
                         ImageButton deviceOne;
                         deviceOne = (ImageButton) findViewById(R.id.light);
-                        if (device.isState())
+                        if (deviceLight.isState())
                             deviceOne.setBackgroundResource(R.drawable.luz_on);
                         else
                             deviceOne.setBackgroundResource(R.drawable.luz_off);
                     }
                     else
                     {
-                        temperature.setText(deviceTemp.getValue() +" "+ calcularFecha());
+                        temperature.setText(deviceTemp.getValue() +"°C\n"+ calcularFecha());
                         //para pruebas
                         //temperature.setText("28°C "+calcularFecha());
 
@@ -304,10 +334,6 @@ public class MainActivity extends Activity {
         json = jsonParser.makeHttpRequest(url_login, "GET", params);
 
         return  json;
-
-
-
-
     }
 
     class Device

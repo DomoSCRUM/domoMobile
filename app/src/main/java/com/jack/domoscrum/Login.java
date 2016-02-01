@@ -39,7 +39,10 @@ public class Login extends Activity {
 	public String IP = "10.0.2.2";
 	public String url_login = "http://" + IP+ "/xtreme/login.php";
 	// JSON Node names
-	public int success=0;
+	private boolean success=false;
+	private String TAG_STATE= "result";
+	private boolean state=false;
+
 
 
 	@Override
@@ -49,6 +52,10 @@ public class Login extends Activity {
 		// Edit Text
 		name = (EditText) findViewById(R.id.name);
 		pass = (EditText) findViewById(R.id.password);
+		//setea la direccion del shareprefrence
+		SharedPreferences sharedPref = getSharedPreferences("PASA",MODE_PRIVATE);
+		IP = sharedPref.getString("ip", IP);
+		url_login = "http://" + IP+ ":8080/OjosTest/Peticion";
 
 	}
 
@@ -228,10 +235,8 @@ public class Login extends Activity {
 		protected String doInBackground(String... args) {
 			String usuarios = name.getText().toString();
 			String password = pass.getText().toString();
-			// Building Parameters
-			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			params.add(new BasicNameValuePair("usuario", usuarios));
-			params.add(new BasicNameValuePair("password", password));
+
+			JSONObject json = returnParams(usuarios, password);
 			// getting JSON Object
 			// Note that create Empleado url accepts POST method, Comentar para pruebas
 			//JSONObject json = jsonParser.makeHttpRequest(url_login,"POST", params);
@@ -240,51 +245,41 @@ public class Login extends Activity {
 			//Log.d("Create Response", ((json !=null) ? json.toString():"Error"));
 			// check for success tag
 			//Descomentar para Pruebas, comentar para produccion
-			JSONObject json= new JSONObject();
+			//JSONObject json= new JSONObject();
 
 			try {
 				if(json != null)
 				{
 					//int success = json.getInt(TAG_SUCCESS);
-					success = 1;
+					state = json.getBoolean(TAG_STATE);
+					success = true;
+					if(state) {
 
+						// successfully created Empleado
+						SharedPreferences sharedPref = getSharedPreferences("PASA",
+								MODE_PRIVATE);
+						SharedPreferences.Editor editor = sharedPref.edit();
+						editor.putString("nombre", usuarios);
+						editor.putBoolean("User", true);
+						editor.apply();
+						//finish();
 
-					//String nombre = json.getString(TAG_NOMBRE);
-					//String apellido = json.getString(TAG_APELLIDO);
-					String nombre= "admin";
-					String apellido= "DomoScrum";
+						Intent i = new Intent("com.google.xtreme.MainActivity");
 
-					// successfully created Empleado
-					SharedPreferences sharedPref = getSharedPreferences("PASA",
-							MODE_PRIVATE);
-					SharedPreferences.Editor editor = sharedPref.edit();
-					editor.putString("nombre", nombre + " " + apellido);
-					editor.putBoolean("User", true);
-					editor.apply();
-					//finish();
-
-					Intent i = new Intent("com.google.xtreme.MainActivity");
-
-					//Intent i = new Intent(getApplicationContext(), MainActivity.class);
-					/*Intent i = new Intent(Settings.ACTION_ADD_ACCOUNT);
-					i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-					i.putExtra(Settings.EXTRA_AUTHORITIES, new String[]{"com.google.xtreme.MainActivity"});*/
-					i.putExtra("nameComplete", nombre + " " + apellido);
-					startActivity(i);
-					finish();
+						i.putExtra("nameComplete", usuarios);
+						startActivity(i);
+						finish();
+					}
 					// closing this screen
 				}
-				else
-				{
-					json.getString("");
-				}
+
 			} catch (JSONException e) {
 				//e.printStackTrace();
 				Toast customtoast=new Toast(getApplicationContext());
 				LayoutInflater inflater=getLayoutInflater();
 				View customToastroot =inflater.inflate(R.layout.red_toast, null);
 				TextView msg= (TextView) customToastroot.findViewById(R.id.txtMensaje);
-				msg.setText("Error al parsear los datos");
+				msg.setText("Error al parsear los datos" + e.getMessage());
 				customtoast.setView(customToastroot);
 				customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
 				customtoast.setDuration(Toast.LENGTH_LONG);
@@ -301,12 +296,26 @@ public class Login extends Activity {
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog once done
 			pDialog.dismiss();
-			if(success == 0)
+			if(!success)
+			{
+				AlertDialog dialog = new AlertDialog.Builder(Login.this)
+						//AlertDialog dialog = new AlertDialog.Builder(this)
+						.setTitle("Error")
+						.setMessage("Error de Conexion con el servidor")
+						.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int which) {
+									}
+								}).create();
+				dialog.show();
+
+			}
+			else if(!state )
 			{
 				AlertDialog dialog = new AlertDialog.Builder(Login.this)
 							//AlertDialog dialog = new AlertDialog.Builder(this)
 							.setTitle("Error")
-							.setMessage("Error de Conexion con el servidor")
+							.setMessage("Usuario y/o Contraseña invalidos")
 							.setPositiveButton("OK",
 									new DialogInterface.OnClickListener() {
 										public void onClick(DialogInterface dialog, int which) {
@@ -315,7 +324,25 @@ public class Login extends Activity {
 					dialog.show();
 
 			}
+
+
+
 		}
+
+	}
+
+	private  JSONObject returnParams(String user, String passw)
+	{
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		JSONObject json = null;
+		params.add(new BasicNameValuePair("method", "login"));
+		params.add(new BasicNameValuePair("user", user));
+		params.add(new BasicNameValuePair("pass", passw));
+
+		JSONParser jsonParser = new JSONParser();
+		json = jsonParser.makeHttpRequest(url_login, "GET", params);
+
+		return  json;
 
 	}
 }
