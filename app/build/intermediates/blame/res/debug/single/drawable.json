@@ -48,12 +48,12 @@
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/blue.png"
     },
     {
-        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/red.png",
-        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/red.png"
-    },
-    {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/luz_off.png",
         "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/luz_off.png"
+    },
+    {
+        "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/red.png",
+        "source": "/home/Jhon_Albert/StudioProjects/domoMobile/app/src/main/res/drawable/red.png"
     },
     {
         "merged": "/home/Jhon_Albert/StudioProjects/domoMobile/app/build/intermediates/res/merged/debug/drawable/home_background.jpg",

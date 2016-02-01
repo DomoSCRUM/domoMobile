@@ -14,7 +14,8 @@ public final class R {
         public static final int azul=0x7f040000;
         public static final int negro=0x7f040001;
         public static final int rojo=0x7f040002;
-        public static final int verde=0x7f040003;
+        public static final int rojo_dark=0x7f040003;
+        public static final int verde=0x7f040004;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f050000;

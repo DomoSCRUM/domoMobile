@@ -3,6 +3,7 @@
     <color name="azul">#082B41</color>
     <color name="negro">#000000</color>
     <color name="rojo">#E72512</color>
+    <color name="rojo_dark">#cc0000</color>
     <color name="verde">#0BB32F</color>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

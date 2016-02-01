@@ -35,9 +35,8 @@ public class Login extends Activity {
 	JSONParser jsonParser = new JSONParser();
 	EditText name;
 	EditText pass;
-	String directionIP="";
-	public String IP = "10.0.2.2";
-	public String url_login = "http://" + IP+ "/xtreme/login.php";
+	public String IP = "";
+	private String url_login = "http://" + IP+ ":8080/OjosTest/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
 	// JSON Node names
 	private boolean success=false;
 	private String TAG_STATE= "result";
@@ -53,9 +52,6 @@ public class Login extends Activity {
 		name = (EditText) findViewById(R.id.name);
 		pass = (EditText) findViewById(R.id.password);
 		//setea la direccion del shareprefrence
-		SharedPreferences sharedPref = getSharedPreferences("PASA",MODE_PRIVATE);
-		IP = sharedPref.getString("ip", IP);
-		url_login = "http://" + IP+ ":8080/OjosTest/Peticion";
 
 	}
 
@@ -73,7 +69,7 @@ public class Login extends Activity {
 	public void configureIP() {
 		final EditText inputIp = new EditText(this);
 		inputIp.setKeyListener(IPAddressKeyListener.getInstance());
-		inputIp.setText(directionIP);
+		inputIp.setText(IP);
 
 		AlertDialog dialog = new AlertDialog.Builder(Login.this)
 				//AlertDialog dialog = new AlertDialog.Builder(this)
@@ -127,19 +123,13 @@ public class Login extends Activity {
 				SharedPreferences.Editor editor = sharedPref.edit();
 				editor.putString("ip", input.getText().toString());
 				editor.apply();
-				directionIP=input.getText().toString();
+				IP=input.getText().toString();
+				url_login = "http://" + IP+ ":8080/OjosTest/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
+
+
 			}
 			else
 			{
-				/*AlertDialog message = new AlertDialog.Builder(Login.this)
-						.setTitle("Error")
-						.setMessage("Direccion IP Invalida")
-						.setPositiveButton("OK",
-								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int which) {
-									}
-								}).create();
-				message.show();*/
 				Toast toast3 = new Toast(getApplicationContext());
 
 				LayoutInflater inflater = getLayoutInflater();
@@ -153,17 +143,6 @@ public class Login extends Activity {
 				toast3.setDuration(Toast.LENGTH_LONG);
 				toast3.setView(layout);
 				toast3.show();
-
-				/*Toast customtoast=new Toast(getApplicationContext());
-				LayoutInflater inflater=getLayoutInflater();
-				View customToastroot =inflater.inflate(R.layout.yellow_toast, null);
-				TextView msg= (TextView) findViewById(R.id.txtMensaje);
-				msg.setText("Direccion IP Invalida");
-				customtoast.setView(customToastroot);
-				customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
-				customtoast.setDuration(Toast.LENGTH_LONG);
-
-				customtoast.show();*/
 
 			}
 
@@ -192,7 +171,7 @@ public class Login extends Activity {
 			return false;
 
 		}
-		if(directionIP.isEmpty())
+		if(IP.isEmpty())
 		{
 			Toast customtoast=new Toast(getApplicationContext());
 			LayoutInflater inflater=getLayoutInflater();

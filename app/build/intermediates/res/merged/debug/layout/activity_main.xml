@@ -43,7 +43,7 @@ tools:context="com.jack.domoscrum.MainActivity">
         android:gravity="left"
         android:paddingBottom="15dp"
         android:paddingTop="3dp"
-        android:textColor="@color/rojo"
+        android:textColor="@color/rojo_dark"
         android:textSize="13sp" />
 
     <ImageButton

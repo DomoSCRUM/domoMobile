@@ -73,6 +73,7 @@ public class MainActivity extends Activity {
         deviceLight= new Device();
         deviceLight.setId(findViewById(R.id.light).getId());
         deviceLight.setName("light");
+        deviceLight.setState(true);
         deviceTemp= new Device();
         deviceTemp.setId(findViewById(R.id.temp).getId());
         deviceTemp.setName("temp");
