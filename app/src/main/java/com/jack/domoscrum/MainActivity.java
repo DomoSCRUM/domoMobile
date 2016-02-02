@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     private ProgressDialog pDialog;
     private boolean success=false;
     private String IP = "10.0.2.2";
-    private String url_login = "http://" + IP+ ":8080/OjosTest/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
+    private String url_login = "http://" + IP+ ":8080/DomoSCRUM/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
     private JSONObject json=null;
     private Device deviceLight=null;
     private Device deviceTemp=null;
@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
         }
         //setea la direccion del shareprefrence
         IP = sharedPref.getString("ip", IP);
-        url_login = "http://" + IP+ ":8080/OjosTest/Peticion";
+        url_login = "http://" + IP+ ":8080/DomoSCRUM/Peticion";
         beginDevice();
 
 
@@ -218,13 +218,14 @@ public class MainActivity extends Activity {
                         String values[] = result.split("_");
                         for (int j = 0; j < values.length; j++) {
                             if (j == 0) {
+                                deviceTemp.setValue(values[j].replace("_", "."));
+
+                            } else {
                                 int state = Integer.parseInt(values[j]);
                                 if (state == 0)
                                     deviceLight.setState(false);
                                 else
                                     deviceLight.setState(true);
-                            } else {
-                                deviceTemp.setValue(values[j].replace("_", "."));
                             }
                         }
                     }

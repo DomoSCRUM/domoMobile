@@ -36,7 +36,7 @@ public class Login extends Activity {
 	EditText name;
 	EditText pass;
 	public String IP = "";
-	private String url_login = "http://" + IP+ ":8080/OjosTest/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
+	private String url_login = "http://" + IP+ ":8080/DomoSCRUM/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
 	// JSON Node names
 	private boolean success=false;
 	private String TAG_STATE= "result";
@@ -124,7 +124,7 @@ public class Login extends Activity {
 				editor.putString("ip", input.getText().toString());
 				editor.apply();
 				IP=input.getText().toString();
-				url_login = "http://" + IP+ ":8080/OjosTest/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
+				url_login = "http://" + IP+ ":8080/DomoSCRUM/Peticion";//http://190.6.160.42:8080/OjosTest/Peticion
 
 
 			}

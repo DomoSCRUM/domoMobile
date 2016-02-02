@@ -1,13 +1,5 @@
 package com.jack.domoscrum;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.logging.Logger;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -23,7 +15,12 @@ import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 public class JSONParser {
 
@@ -95,7 +92,14 @@ public class JSONParser {
 				sb.append(line + "\n");
 			}
 			is.close();
-			json = "{result:"+sb.toString().replace(",","_")+"}";
+			if(!sb.toString().isEmpty()) {
+				if (sb.toString().contains(","))
+					json = "{result:" + sb.toString().replace(",", "_") + "}";
+				else
+					json = "{result:" + sb.toString() + "}";
+			}
+
+
 		} catch (Exception e) {
 			//Log.e("Buffer Error", "Error converting result ", e);
 			return null;
@@ -105,7 +109,12 @@ public class JSONParser {
 		try {
 			jObj = new JSONObject(json);
 		} catch (JSONException e) {
-
+			json="{error: Error al leer los datos}";
+			try {
+				jObj = new JSONObject(json);
+			} catch (JSONException e1) {
+				//e1.printStackTrace();
+			}
 			//Log.e("JSON Parser", "Error parsing data " ,e);
 			return null;
 		}
